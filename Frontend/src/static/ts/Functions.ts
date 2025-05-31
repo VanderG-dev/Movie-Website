@@ -39,6 +39,10 @@ const headerSeriesButton = document.querySelector(".header-series-button");
 const headerGenresButton = document.querySelector(".header-genres-button");
 const mainLogo = document.querySelector(".main-logo");
 const greyColor = "rgba(255, 255, 255, 0.452)";
+
+export const currentMovie = {
+  id: 0,
+};
 // переменные для хедера
 
 export function GenerateLoginModal() {
@@ -355,8 +359,6 @@ export function GenerateProfileModal(username) {
 //   }
 // }
 
-let currentMovie = 0;
-
 export function registerRequest() {
   const responseAuth = document.querySelector(".response-auth");
 
@@ -509,7 +511,7 @@ export function FavoritePage() {
 
                 const h3 = li.querySelector("h3");
                 h3.addEventListener("click", function () {
-                  currentMovie = getMovieId;
+                  currentMovie.id = getMovieId;
                   pageContent.innerHTML = "";
 
                   showMoviePage();
@@ -717,7 +719,7 @@ export function mainPageSeries(Url, containerName) {
         const h3 = li.querySelector("h3");
 
         h3.addEventListener("click", function () {
-          currentMovie = getSeriesId;
+          currentMovie.id = getSeriesId;
 
           showSeriesPage();
           scrollToTop();
@@ -872,10 +874,10 @@ export function showMainPage() {
 // открытие страницы с 1 фильмом
 export function showMoviePage() {
   const pageContent = document.querySelector(".page-content");
-  if (currentMovie !== 0) {
+  if (currentMovie.id !== 0) {
     pageContent.style.width = "90%";
 
-    fetch(`https://api.themoviedb.org/3/movie/${currentMovie}?language=ru-RU`, options)
+    fetch(`https://api.themoviedb.org/3/movie/${currentMovie.id}?language=ru-RU`, options)
       .then((response) => {
         if (!response.ok) {
           throw new Error("could not get a fetch resourse");
@@ -884,7 +886,7 @@ export function showMoviePage() {
       })
 
       .then((movies) => {
-        console.log("ID страницы: " + currentMovie);
+        console.log("ID страницы: " + currentMovie.id);
         let poster = movies.poster_path;
         let genres = ``;
 
@@ -976,7 +978,7 @@ export function showMoviePage() {
       });
   }
 
-  fetch(`https://api.themoviedb.org/3/movie/${currentMovie}/external_ids`, options)
+  fetch(`https://api.themoviedb.org/3/movie/${currentMovie.id}/external_ids`, options)
     .then((response) => {
       if (!response.ok) {
         throw new Error("could not get a fetch resourse");
@@ -1011,7 +1013,7 @@ export function comments() {
   const sendComment = document.querySelector(".send-comment");
   sendComment.addEventListener("click", () => {
     const comment = document.querySelector(".comment-input").value;
-    const page_id = currentMovie;
+    const page_id = currentMovie.id;
     const commentJson = { comment, page_id };
     console.log(commentJson);
     $.ajax({
@@ -1031,7 +1033,7 @@ export function comments() {
   // добавление комментария
 
   // получение списка комментариев
-  const page_id = currentMovie;
+  const page_id = currentMovie.id;
   const listJson = { page_id };
   console.log(`ID для загрузки комментов: ` + page_id);
   $.ajax({
@@ -1065,7 +1067,7 @@ export function comments() {
         changeComment.addEventListener("click", () => {
           const comment_Text = document.querySelector(".comment-input").value;
           const comment_id = response[i].comment_id;
-          const page_id = currentMovie;
+          const page_id = currentMovie.id;
           const commentJson = { comment_Text, comment_id, page_id };
           console.log(commentJson);
           $.ajax({
@@ -1086,7 +1088,7 @@ export function comments() {
         // удаление комментариев
         const deleteComment = commentBox.querySelector(".delete-comment");
         deleteComment.addEventListener("click", function () {
-          const page_id = currentMovie;
+          const page_id = currentMovie.id;
           const comment_id = response[i].comment_id;
           const commentJson = { page_id, comment_id };
           console.log(commentJson);
@@ -1119,10 +1121,10 @@ export function comments() {
 // Открытие страницы с сериалом
 export function showSeriesPage() {
   const pageContent = document.querySelector(".page-content");
-  if (currentMovie !== 0) {
+  if (currentMovie.id !== 0) {
     pageContent.style.width = "90%";
 
-    fetch(`https://api.themoviedb.org/3/tv/${currentMovie}?language=ru-RU`, options)
+    fetch(`https://api.themoviedb.org/3/tv/${currentMovie.id}?language=ru-RU`, options)
       .then((response) => {
         if (!response.ok) {
           throw new Error("could not get a fetch resourse");
@@ -1203,7 +1205,7 @@ export function showSeriesPage() {
 
   pageContent.innerHTML = `<div class="player_container"></div>`;
 
-  fetch(`https://api.themoviedb.org/3/tv/${currentMovie}/external_ids`, options)
+  fetch(`https://api.themoviedb.org/3/tv/${currentMovie.id}/external_ids`, options)
     .then((response) => {
       if (!response.ok) {
         throw new Error("could not get a fetch resourse");
@@ -1211,7 +1213,7 @@ export function showSeriesPage() {
       return response.json();
     })
     .then((response) => {
-      currentMovie = response["imdb_id"];
+      currentMovie.id = response["imdb_id"];
 
       const player_container = document.querySelector(".player_container");
 
@@ -1222,7 +1224,7 @@ export function showSeriesPage() {
       script1.src = "https://kinobox.tv/kinobox.min.js";
 
       const script2 = document.createElement("script");
-      script2.textContent = `kbox('.kinobox_player', {search: {imdb: '${currentMovie}'}})`;
+      script2.textContent = `kbox('.kinobox_player', {search: {imdb: '${currentMovie.id}'}})`;
 
       player_container.appendChild(box);
       player_container.appendChild(script1);
@@ -1288,7 +1290,7 @@ export function MovieList(Page) {
         const h3 = li.querySelector("h3");
 
         h3.addEventListener("click", function () {
-          currentMovie = getMovieId;
+          currentMovie.id = getMovieId;
           pageContent.innerHTML = "";
 
           showMoviePage();
@@ -1520,7 +1522,7 @@ export function SeriesList(Page) {
         const h3 = li.querySelector("h3");
 
         h3.addEventListener("click", function () {
-          currentMovie = getMovieId;
+          currentMovie.id = getMovieId;
           pageContent.innerHTML = "";
 
           showSeriesPage();
@@ -1755,7 +1757,7 @@ export function SearchPage(movieName, Page) {
         const h3 = li.querySelector("h3");
 
         h3.addEventListener("click", function () {
-          currentMovie = getMovieId;
+          currentMovie.id = getMovieId;
 
           showMoviePage();
           scrollToTop();

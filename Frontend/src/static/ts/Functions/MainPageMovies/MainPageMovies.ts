@@ -6,6 +6,7 @@ import { showMainPage } from "../../Functions.ts";
 import { showMoviePage } from "../../Functions.ts";
 import { options } from "../../config/ApiConfig.ts";
 import { SetNavStyle } from "../NavButtons.ts";
+import { currentMovie } from "../../Functions.ts";
 import axios from "axios";
 
 export async function mainPageMovies(Url: string, containerName) {
@@ -57,9 +58,9 @@ export async function mainPageMovies(Url: string, containerName) {
       // Добавление закладок
       const addFavorite = li.querySelector(".add-favorite");
       addFavorite.addEventListener("click", async function () {
-        currentMovie = getMovieId;
+        currentMovie.id = getMovieId;
 
-        let movie_id = currentMovie;
+        let movie_id = currentMovie.id;
         const dict_values = { movie_id };
 
         try {
@@ -76,7 +77,7 @@ export async function mainPageMovies(Url: string, containerName) {
 
       const h3 = li.querySelector("h3");
       h3.addEventListener("click", function () {
-        currentMovie = getMovieId;
+        currentMovie.id = getMovieId;
 
         showMoviePage();
         scrollToTop();
