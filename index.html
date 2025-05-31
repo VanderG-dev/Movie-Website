@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+
+
+       <header>
+
+      
+     
+      <div class="header-container">
+        <h1 class="header-text">
+          <img src="./src/static/img/logo.png" width="64" class="main-logo"/>
+          <div class="header-buttons">
+            <button class="header-home-button">Главная</button>
+            <button class="header-movies-button">Фильмы</button>
+            <button class="header-series-button">Сериалы</button>
+          </div>
+        </h1>
+
+       
+
+        <button class="search-button">
+          <img src="./src/static/img/search-icon.png" width="32px" />
+        </button>
+
+        <div class="line-container">
+          <div class="line"></div>
+        </div>
+
+        <button class="favorite-button">
+          <img src="./src/static/img/favorite-icon.png" width="32px" />
+        </button>
+
+
+        <div class="switch-user-button">
+        <button class="js-auth-button">
+          <img src="./src/static/img/user-icon.png" width="32px" />
+          <h1>Войти</h1>
+        </button>
+      </div>
+      </div>
+    </header>
+
+    
+   
+    <div class="align-modal">
+      <div class="js-log-modal">
+        <div class="log-block">
+          <button class="js-exit-modal">🞨</button>
+
+          <h1 class="log-text">
+            <img src="./src/static/img/logo.png" width="32" />
+            Movies
+          </h1>
+
+          <div class="log-reg">
+            <div class="log-in">Вход</div>
+
+            <div class="line"></div>
+
+            <div class="reg-in">Регистрация</div>
+          </div>
+        
+       
+
+          <div class="js-log-reg-input">
+            <input class="login-input" type="input" placeholder="Логин" />
+            <input class="password-input" type="password" type="input" placeholder="Пароль">
+            <img src="./src/static/img/hide.png"  class="show-hide-button">
+          </div>
+          <h1 class="response-auth"></h1>
+          <div class="auth-container">
+            <div class="js-enter-account">Войти</div>
+          </div>
+      
+        </div>
+      </div>
+    </div>
+
+    <div class="align">
+      <div class="page-content">
+  
+       
+    
+          <div class="division">
+            <h1 class="main-page-text">- Фильмы -</h1>
+            <div class="row">
+              <h1 >Популярное</h1>
+              <div class="main-page-line"></div>
+              <section class="slider">
+                <div class="container">
+                  <div class="slider" data-slider1>
+                    <ul class="slider__track" id="first_track" data-slider-track1></ul>
+
+                    <div class="slider__button_left">
+                      <button class="slider__button" data-slider-prev1 disabled>
+                        <div class="arrow-left">left arrow</div>
+                      </button>
+                    </div>
+                    <div class="slider__button_right">
+                      <button class="slider__button" data-slider-next1>
+                        <div class="arrow-right">right arrow</div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div class="row">
+              <h1 >Высокие рейтинги</h1>
+              <div class="main-page-line-second"></div>
+              <section class="slider">
+                <div class="container">
+                  <div class="slider" data-slider2>
+                    <ul class="slider__track" id="second_track" data-slider-track2></ul>
+
+                    <div class="slider__button_left">
+                      <button class="slider__button" data-slider-prev2 disabled>
+                        <i class="arrow-left">left arrow</i>
+                      </button>
+                    </div>
+                    <div class="slider__button_right">
+                      <button class="slider__button" data-slider-next2>
+                        <i class="arrow-right">right arrow</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+          <div class="division">
+            <h1 class="main-page-text">- Сериалы -</h1>
+            <div class="row">
+              <h1 >Популярное</h1>
+              <div class="main-page-line"></div>
+              <section class="slider">
+                <div class="container">
+                  <div class="slider" data-slider4>
+                    <ul class="slider__track" id="fourth_track" data-slider-track4></ul>
+                    <div class="slider__button_left">
+                      <button class="slider__button" data-slider-prev4 disabled>
+                        <i class="arrow-left">left arrow</i>
+                      </button>
+                    </div>
+                    <div class="slider__button_right">
+                      <button class="slider__button" data-slider-next4>
+                        <i class="arrow-right">right arrow</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div class="row">
+              <h1 >Высокие рейтинги</h1>
+              <div class="main-page-line-second"></div>
+              <section class="slider">
+                <div class="container">
+                  <div class="slider" data-slider3>
+                    <ul class="slider__track" id="5_track" data-slider-track3></ul>
+
+                    <div class="slider__button_left">
+                      <button class="slider__button" data-slider-prev3 disabled>
+                        <i class="arrow-left">right arrow</i>
+                      </button>
+                    </div>
+                    <div class="slider__button_right">
+                      <button class="slider__button" data-slider-next3>
+                        <i class="arrow-right">left arrow</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="align">
+      <div class="mobile-footer">
+        <button class="footer-home-button">
+          <img src="./src/static/img/home-icon.png" width="32px" />Главная
+        </button>
+        <button class="footer-movies-button">
+          <img src="./src/static/img/movies-icon.png" width="32px" />Фильмы
+        </button>
+        <button class="footer-series-button">
+          <img src="./src/static/img/series-icon.png" width="32px" />Сериалы
+        </button>
+        <button class="footer-more-button">
+          <img src="./src/static/img/dots-icon.png" width="32px" />Больше
+        </button>
+      </div>
+    </div>
+
+    <div class="align">
+      <footer>
+        <div class="footer-block">
+          <img src="./src/static/img/logo.png" width="32" height="32" />
+          <div class="footer-img-text">Movies</div>
+        </div>
+
+        <div class="footer-text">Фильмы, сериалы и мультфильмы на русском языке</div>
+      </footer>
+    </div>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  axios.get('https://api.example.com/data').then(res => {
+    console.log(res.data);
+  });
+</script>
+    <script type="module" src="/src/main.ts"></script>
+
+  </body>
+</html>

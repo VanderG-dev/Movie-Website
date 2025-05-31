@@ -1,0 +1,397 @@
+@media (min-width: 0px) {
+  .profile-text {
+    height: 70px;
+    border-radius: 10px;
+    border: 0px;
+
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    font-family: "Cormorant Garamond", serif;
+
+    transition: 0.3s;
+    z-index: 25;
+    margin-top: 10px;
+  }
+  .profile-second-text {
+    position: absolute;
+    left: 80;
+    top: 118;
+    height: 70px;
+    border-radius: 10px;
+    border: 0px;
+
+    color: rgb(148, 148, 148);
+    font-size: 30px;
+    font-family: "Cormorant Garamond", serif;
+
+    transition: 0.3s;
+    z-index: 25;
+    margin-top: 150px;
+  }
+
+  .profile-pic {
+    border-radius: 100%;
+    border: solid 4px white;
+  }
+
+  .avatar-text {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 90;
+    top: 80;
+    margin-top: 50px;
+
+    h1 {
+      margin-top: 25px;
+      margin-left: 10px;
+      color: rgb(255, 255, 255);
+    }
+  }
+
+  .change-avatar {
+    position: absolute;
+    border-radius: 100%;
+    width: 92px;
+    height: 92px;
+    color: transparent;
+    background-color: transparent;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 30px;
+    transition: 0.4s;
+    cursor: pointer;
+    &:hover {
+      color: white;
+      background-color: rgba(0, 0, 0, 0.63);
+    }
+  }
+
+  .other-info {
+    margin-top: 280px;
+    position: absolute;
+    top: 35;
+    left: 90;
+
+    h1 {
+      margin-top: 20px;
+
+      font-size: 30px;
+    }
+    h2 {
+      color: rgb(84, 175, 255);
+      margin-left: 10px;
+      margin-top: 27px;
+      font-size: 23px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 100;
+    }
+  }
+
+  .align-info {
+    display: flex;
+    flex-direction: row;
+  }
+  .date-box {
+    width: 150px;
+    height: 40px;
+    background-color: rgba(155, 155, 155, 0.072);
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid 3px rgba(84, 175, 255, 0);
+  }
+
+  .js-logout {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 85;
+    left: 30;
+    float: right;
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(255, 255, 255, 0.507);
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 25;
+    margin-top: -60px;
+    background-color: transparent;
+    border: 0px solid transparent;
+    cursor: pointer;
+
+    &:hover > h1 {
+      color: rgb(221, 57, 57);
+    }
+
+    h1 {
+      position: absolute;
+      color: transparent;
+      margin-top: 0px;
+      margin-left: 55px;
+      font-size: 30px;
+      &:hover {
+        color: rgb(221, 57, 57);
+      }
+    }
+
+    img {
+      filter: invert(100%);
+      width: 48px;
+    }
+  }
+
+  .black-box {
+    position: absolute;
+    margin-left: -20px;
+    margin-top: -20px;
+    background-color: rgba(0, 0, 0, 0.251);
+    width: 550px;
+    border-radius: 10px;
+    height: 130px;
+    z-index: -20;
+  }
+
+  .black-box-second {
+    position: absolute;
+    margin-left: -20px;
+    margin-top: 0px;
+    background-color: rgba(0, 0, 0, 0.251);
+    width: 550px;
+    border-radius: 10px;
+    height: 190px;
+    z-index: -20;
+  }
+
+  .avatar-modal {
+    width: 700px;
+    height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .avatar-image-container {
+    z-index: 1600;
+  }
+  .profile-pic-choose {
+    border-radius: 100%;
+    z-index: 1600;
+    border: solid 4px white;
+    cursor: pointer;
+    margin: 15px;
+  }
+  .avatar-modal-text {
+    font-size: 42px;
+    z-index: 1600;
+    width: 100%;
+    margin-left: 125px;
+  }
+  .avatar-modal-box {
+    z-index: 1500;
+    position: absolute;
+    top: -0;
+    width: 700px;
+    border-radius: 20px;
+    height: 700px;
+    background-color: rgb(20, 22, 32);
+  }
+  .change-profile-btn {
+    position: absolute;
+    bottom: 80;
+    text-align: center;
+    color: white;
+    border: 0px solid;
+
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgb(41, 103, 184), rgb(36, 160, 209));
+    font-size: 30px;
+    width: 350px;
+    height: 60px;
+    transition: 0.4s;
+    &:hover {
+      height: 65px;
+    }
+  }
+  .profile-modal-text {
+    z-index: 1700;
+    position: absolute;
+    font-size: 35px;
+    top: 30px;
+  }
+  .profile-modal {
+    width: 700px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: center;
+  }
+
+  .send-profile-data {
+    position: absolute;
+    bottom: 100;
+    z-index: 1700;
+    text-align: center;
+    color: white;
+    border: 0px solid;
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgb(41, 103, 184), rgb(36, 160, 209));
+    font-size: 30px;
+    width: 200px;
+    height: 40px;
+    transition: 0.4s;
+    &:hover {
+      height: 45px;
+    }
+  }
+
+  .send-email-data {
+    position: absolute;
+    bottom: 120;
+    z-index: 1700;
+    text-align: center;
+    color: white;
+    border: 0px solid;
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgb(41, 103, 184), rgb(36, 160, 209));
+    font-size: 30px;
+    width: 220px;
+    height: 40px;
+    transition: 0.4s;
+    &:hover {
+      height: 45px;
+    }
+  }
+
+  .profile-black-box {
+    position: absolute;
+    top: 100;
+    z-index: 1650;
+    width: 400px;
+    height: 520px;
+
+    background-color: rgba(0, 0, 0, 0.251);
+    border-radius: 10px;
+  }
+  .align-profile-input {
+    z-index: 1700;
+    margin-bottom: 160px;
+  }
+
+  .change-profile-email {
+    position: absolute;
+    top: 130;
+    z-index: 1700;
+    text-align: center;
+    color: white;
+    border: 0px solid;
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(155, 155, 155, 0.072);
+
+    font-size: 30px;
+    width: 280px;
+    height: 40px;
+    margin-left: 40px;
+    transition: 0.4s;
+
+    &:hover {
+      background-color: rgb(32, 116, 185);
+    }
+  }
+
+  .delete-account {
+    position: absolute;
+    top: 190;
+    z-index: 1700;
+    text-align: center;
+    color: white;
+    border: 0px solid;
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(155, 155, 155, 0.072);
+    font-size: 30px;
+    width: 280px;
+    height: 40px;
+    margin-left: 40px;
+    transition: 0.4s;
+
+    &:hover {
+      background-color: rgb(185, 37, 32);
+    }
+  }
+  .profile-edit-text {
+    z-index: 1700;
+    margin-bottom: 20px;
+  }
+  .profile-edit-name,
+  .profile-edit-country,
+  .profile-edit-email {
+    width: 100%;
+    height: 35px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 5px;
+    color: white;
+    background-color: rgba(155, 155, 155, 0.072);
+  }
+  .email-edit,
+  .password-edit {
+    width: 100%;
+    height: 35px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 5px;
+    color: white;
+    background-color: rgba(155, 155, 155, 0.072);
+  }
+
+  .align-profile-input-2 {
+    z-index: 1700;
+    margin-bottom: 250px;
+  }
+
+  .resultEmail {
+    width: 100%;
+    height: 35px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 5px;
+  }
+}
+
+@media (min-width: 280px) {
+}
+
+@media (min-width: 490px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1440px) {
+}
+
+@media (min-width: 2560px) {
+}

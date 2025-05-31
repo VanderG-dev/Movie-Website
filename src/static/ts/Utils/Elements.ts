@@ -1,0 +1,21 @@
+export const pageContent = document.querySelector(".page-content");
+export const logBtn = document.querySelector(".js-auth-button");
+export const switchUserButton = document.querySelector(".switch-user-button");
+export const logBlock = document.querySelector(".log-block");
+export const allModal = document.querySelector(".align-modal");
+export const elementsInsideContainer = allModal.querySelectorAll("*");
+export const allElements = document.querySelectorAll("*");
+export const exitModal = document.querySelector(".js-exit-modal");
+export const registerBtn = document.querySelector(".reg-in");
+export const loginBtn = document.querySelector(".log-in");
+export const logReg = document.querySelector(".js-log-reg-input");
+export const authContent = document.querySelector(".auth-container");
+export const responseAuth = document.querySelector(".response-auth");
+
+export const searchButton = document.querySelector(".search-button");
+export const favoriteButton = document.querySelector(".favorite-button");
+export const headerHomeButton = document.querySelector(".header-home-button");
+export const headerMoviesButton = document.querySelector(".header-movies-button");
+export const headerSeriesButton = document.querySelector(".header-series-button");
+export const headerGenresButton = document.querySelector(".header-genres-button");
+export const mainLogo = document.querySelector(".main-logo");
