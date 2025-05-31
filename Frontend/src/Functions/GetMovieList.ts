@@ -10,6 +10,7 @@ import { currentMovie } from "./Functions.ts";
 import axios from "axios";
 
 const ASSET_DIR = "./src/assets/img/";
+let imagePath: string = `http://image.tmdb.org/t/p/w500/`;
 
 export async function GetMovieList(Url: string, containerName: string) {
   try {
@@ -21,29 +22,23 @@ export async function GetMovieList(Url: string, containerName: string) {
     let movieIdList = [];
 
     for (let i = 0; i <= movies.results.length - 1; i++) {
-      let poster = movie[i].poster_path;
+      let image = imagePath + movie[i].poster_path;
+      let Title = movie[i].title;
+      let movieRate = movie[i].vote_average;
+      let roundedRate = movieRate.toFixed(1);
+      let getMovieId = movie[i].id;
 
-      let Image = "";
-      let ImageSrc = `http://image.tmdb.org/t/p/w500/`;
-      if (poster) {
-        Image = movies.results[i].poster_path;
-      } else {
-        ImageSrc = `${ASSET_DIR}not-loaded.png`;
-        Image = "";
+      if (!image) {
+        image = `${ASSET_DIR}not-loaded.png`;
       }
 
-      let Title = movies.results[i].title;
-      let movieRate = movies.results[i].vote_average;
-      let roundedRate = movieRate.toFixed(1);
-      let getMovieId = movies.results[i].id;
-
-      const li = document.createElement("li");
-      li.innerHTML = `
+      const card = document.createElement("li");
+      card.innerHTML = `
           <div class="slide">
             <h3 class="change"></h3>
             
             <img src="${ASSET_DIR}not-loaded.png" class="pre-img" draggable="false" />
-            <img src="${ImageSrc}${Image}" class="slideimg" draggable="false" />
+            <img src="${imagePath}${image}" class="slideimg" draggable="false" />
            
             <div class="red-circle">
             <img src="${ASSET_DIR}favorite-icon.png" class="add-favorite" draggable="false" width="32px"/>
@@ -58,7 +53,7 @@ export async function GetMovieList(Url: string, containerName: string) {
         `;
 
       // Добавление закладок
-      const addFavorite = li.querySelector(".add-favorite");
+      const addFavorite = card.querySelector(".add-favorite");
       addFavorite?.addEventListener("click", async function () {
         currentMovie.id = getMovieId;
 
@@ -77,7 +72,7 @@ export async function GetMovieList(Url: string, containerName: string) {
         }
       });
 
-      const h3 = li.querySelector("h3");
+      const h3 = card.querySelector("h3");
       h3?.addEventListener("click", function () {
         currentMovie.id = getMovieId;
 
@@ -93,7 +88,7 @@ export async function GetMovieList(Url: string, containerName: string) {
         });
       });
 
-      Track?.appendChild(li);
+      Track?.appendChild(card);
       movieIdList.push(getMovieId);
     }
   } catch (error) {
@@ -101,13 +96,13 @@ export async function GetMovieList(Url: string, containerName: string) {
 
     const Track = document.getElementById(`${containerName}_track`);
     for (let i = 0; i <= 19; i++) {
-      const li = document.createElement("li");
-      li.innerHTML = `
+      const card = document.createElement("li");
+      card.innerHTML = `
           <div class="slide">
-            <img src="../static/img/not-loaded.png" class="slideimg" draggable="false" />
+            <img src="${ASSET_DIR}not-loaded.png" class="slideimg" draggable="false" />
           </div>
         `;
-      Track?.appendChild(li);
+      Track?.appendChild(card);
     }
   }
 }
