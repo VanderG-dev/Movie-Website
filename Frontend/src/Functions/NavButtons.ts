@@ -8,7 +8,7 @@ import { exitModal } from "../Utils/Elements.ts";
 import { mainLogo } from "../Utils/Elements.ts";
 import { logBtn } from "../Utils/Elements.ts";
 
-import { MovieList, showMainPage, SearchPage, FavoritePage, SeriesList } from "../Functions.ts";
+import { MovieList, showMainPage, SearchPage, FavoritePage, SeriesList } from "./Functions.ts";
 
 export const greyColor = "rgba(255, 255, 255, 0.452)";
 

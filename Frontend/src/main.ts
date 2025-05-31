@@ -1,9 +1,9 @@
-import "./static/css/style.css";
+import "./styles/css/style.css";
 
-import * as F from "./static/ts/Functions.ts";
-import { NavButtons } from "./static/ts/Functions/NavButtons.ts";
-import { Slider } from "./static/ts/Utils/slider.ts";
-import { mainPageMovies } from "./static/ts/Functions/MainPageMovies/MainPageMovies.ts";
+import * as F from "./Functions/Functions.ts";
+import { NavButtons } from "./Functions/NavButtons.ts";
+import { Slider } from "./Utils/slider.ts";
+import { GetMovieList } from "./Functions/GetMovieList.ts";
 //F.Session();
 
 // Кнопки хедера
@@ -22,8 +22,8 @@ footerHomeButton.addEventListener("click", function () {
 // кнопки футера
 
 // генерация карт фильмов на главной странице
-mainPageMovies("https://api.themoviedb.org/3/movie/popular?language=ru-RU&page=1", "first");
-mainPageMovies("https://api.themoviedb.org/3/movie/top_rated?language=ru-RU&page=1", "second");
+GetMovieList("https://api.themoviedb.org/3/movie/popular?language=ru-RU&page=1", "first");
+GetMovieList("https://api.themoviedb.org/3/movie/top_rated?language=ru-RU&page=1", "second");
 // генерация карт фильмов на главной странице
 
 // генерация карт сериалов на главной странице

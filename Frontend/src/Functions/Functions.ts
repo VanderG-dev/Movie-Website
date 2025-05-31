@@ -1,8 +1,8 @@
 import * as H from "./innerHtml.ts";
-import { options } from "./config/ApiConfig.ts";
-import { scrollToTop } from "./Utils/ScrollToTop.ts";
-import { mainPageMovies } from "./Functions/MainPageMovies/MainPageMovies.ts";
-import { Slider } from "./Utils/slider.ts";
+import { options } from "../config/ApiConfig.ts";
+import { scrollToTop } from "../Utils/ScrollToTop.ts";
+import { GetMovieList } from "./GetMovieList.ts";
+import { Slider } from "../Utils/slider.ts";
 
 export function ChangeHideButton(buttonHide, input) {
   buttonHide.addEventListener("click", () => {
@@ -753,8 +753,8 @@ export function mainPageSeries(Url, containerName) {
 // генерация главной страницы
 export function showMainPage() {
   pageContent.style.width = "93%";
-  mainPageMovies("https://api.themoviedb.org/3/movie/popular?language=ru-RU&page=1", "first");
-  mainPageMovies("https://api.themoviedb.org/3/movie/top_rated?language=ru-RU&page=1", "second");
+  GetMovieList("https://api.themoviedb.org/3/movie/popular?language=ru-RU&page=1", "first");
+  GetMovieList("https://api.themoviedb.org/3/movie/top_rated?language=ru-RU&page=1", "second");
 
   mainPageSeries("https://api.themoviedb.org/3/tv/popular?language=ru-RU&page=1", `fourth`);
   mainPageSeries("https://api.themoviedb.org/3/tv/top_rated?language=ru-RU&page=1", `5`);
