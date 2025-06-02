@@ -1,4 +1,4 @@
-import { elementsInsideContainer } from "../Utils/Elements.ts";
+import { elementsInsideContainer, headerButtons } from "../Utils/Elements.ts";
 import { favoriteButton } from "../Utils/Elements.ts";
 import { searchButton } from "../Utils/Elements.ts";
 import { headerHomeButton } from "../Utils/Elements.ts";
@@ -7,23 +7,34 @@ import { headerSeriesButton } from "../Utils/Elements.ts";
 import { exitModal } from "../Utils/Elements.ts";
 import { mainLogo } from "../Utils/Elements.ts";
 import { logBtn } from "../Utils/Elements.ts";
+import { scrollToTop } from "../Utils/ScrollToTop.ts";
 
 import { MovieList, showMainPage, SearchPage, FavoritePage, SeriesList } from "./Functions.ts";
 
 export const greyColor = "rgba(255, 255, 255, 0.452)";
 
-function ResetNavStyles() {
-  searchButton.style.background = "transparent";
-  favoriteButton.style.background = "transparent";
-  headerHomeButton.style.color = greyColor;
-  headerMoviesButton.style.color = greyColor;
-  headerSeriesButton.style.color = greyColor;
+function ResetNavStyles(): void {
+  headerButtons.search?.style.setProperty("background", "transparent");
+  headerButtons.favorite?.style.setProperty("background", "transparent");
+  headerButtons.home?.style.setProperty("color", greyColor);
+  headerButtons.series?.style.setProperty("color", greyColor);
+  headerButtons.movies?.style.setProperty("color", greyColor);
 }
 
-export function SetNavStyle({ button, page, element, style, mode, pageValue = "" }) {
+interface NavStyle {
+  button: HTMLElement;
+  page: (...args: any[]) => void;
+  element: HTMLButtonElement;
+  style: string;
+  mode: string;
+  pageValue?: string | number;
+}
+
+export function SetNavStyle({ button, page, element, style, mode, pageValue = "" }: NavStyle): void {
   button.addEventListener("click", function () {
     page(pageValue);
     ResetNavStyles();
+    scrollToTop();
 
     if (mode === "background") {
       element.style.background = style;
@@ -93,17 +104,17 @@ export function NavButtons() {
   });
 
   // кнопка выхода из модального окна
-  exitModal.addEventListener("click", function () {
-    elementsInsideContainer.forEach(function (element) {
-      element.style.display = "none";
+  exitModal?.addEventListener("click", function () {
+    elementsInsideContainer?.forEach(function (element) {
+      (element as HTMLElement).style.setProperty("display", "none");
     });
   });
   // кнопка выхода из модального окна
 
-  // кнопка для открытия модального окна
-  logBtn.addEventListener("click", function () {
-    elementsInsideContainer.forEach(function (element) {
-      element.style.display = "flex";
+  // кнопка для открытия модальнaого окна
+  logBtn?.addEventListener("click", function () {
+    elementsInsideContainer?.forEach(function (element) {
+      (element as HTMLElement).style.setProperty("display", "flex");
     });
   });
   // кнопка для открытия модального окна

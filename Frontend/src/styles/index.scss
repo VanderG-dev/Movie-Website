@@ -42,8 +42,8 @@ header {
 
 .hitboxes {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0px;
+  right: 0px;
   color: rgba(255, 0, 0, 0);
   border: 1px solid rgba(255, 0, 0, 0);
 }
@@ -62,8 +62,8 @@ header {
   .show-hide-button-register-first,
   .show-hide-button-register-second {
     position: absolute;
-    top: 260;
-    right: 115;
+    top: 260px;
+    right: 115px;
 
     z-index: 1500;
     margin-top: 10px;
@@ -277,7 +277,7 @@ header {
     @include flex-row;
     display: none;
     position: fixed;
-    top: 0;
+    top: 0px;
     width: 100%;
     height: 100%;
     background-color: $mainBackground;
@@ -300,8 +300,8 @@ header {
   .js-exit-modal-session {
     @include flex-row;
     position: absolute;
-    top: 80;
-    right: 20;
+    top: 80px;
+    right: 20px;
     float: right;
     width: 70px;
     height: 70px;
@@ -497,7 +497,7 @@ header {
     display: flex;
     flex-direction: column;
     position: relative;
-    bottom: 0;
+    bottom: 0px;
     margin-top: 550px;
     background-color: rgb(9, 9, 14);
     width: 100%;
@@ -641,8 +641,8 @@ header {
 
   .js-exit-modal {
     position: relative;
-    top: 70;
-    left: 300;
+    top: 70px;
+    left: 300px;
   }
 
   .mobile-footer {
@@ -704,10 +704,10 @@ header {
     }
   }
 
-  .Header-Home-button,
-  .Header-movies-button,
-  .Header-series-button,
-  .Header-genres-button {
+  .header-home-button,
+  .header-movies-button,
+  .header-series-button,
+  .header-genres-button {
     @include flex-row;
     margin-left: 15px;
     font-size: 25px;

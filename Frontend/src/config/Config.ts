@@ -1,3 +1,5 @@
+export const ASSET_DIR = "./src/assets/img/";
+
 export const options = {
   method: "GET",
   headers: {

@@ -1,5 +1,5 @@
 import * as H from "./innerHtml.ts";
-import { options } from "../config/ApiConfig.ts";
+import { options } from "../config/Config.ts";
 import { scrollToTop } from "../Utils/ScrollToTop.ts";
 import { GetMovieList } from "./GetMovieList.ts";
 import { Slider } from "../Utils/slider.ts";
@@ -40,7 +40,7 @@ const headerGenresButton = document.querySelector(".header-genres-button");
 const mainLogo = document.querySelector(".main-logo");
 const greyColor = "rgba(255, 255, 255, 0.452)";
 
-export const currentMovie = {
+export let currentMovie = {
   id: 0,
 };
 // переменные для хедера

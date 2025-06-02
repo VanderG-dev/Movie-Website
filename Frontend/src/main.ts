@@ -1,9 +1,10 @@
-import "./styles/css/style.css";
+import "./styles/index.scss";
 
 import * as F from "./Functions/Functions.ts";
 import { NavButtons } from "./Functions/NavButtons.ts";
 import { Slider } from "./Utils/slider.ts";
-import { GetMovieList } from "./Functions/GetMovieList.ts";
+
+import { showMainPage } from "./Functions/Functions.ts";
 //F.Session();
 
 // Кнопки хедера
@@ -16,15 +17,10 @@ F.registrationModal();
 
 // кнопки футера
 const footerHomeButton = document.querySelector(".footer-home-button");
-footerHomeButton.addEventListener("click", function () {
+footerHomeButton?.addEventListener("click", function () {
   showMainPage();
 });
 // кнопки футера
-
-// генерация карт фильмов на главной странице
-GetMovieList("https://api.themoviedb.org/3/movie/popular?language=ru-RU&page=1", "first");
-GetMovieList("https://api.themoviedb.org/3/movie/top_rated?language=ru-RU&page=1", "second");
-// генерация карт фильмов на главной странице
 
 // генерация карт сериалов на главной странице
 F.mainPageSeries("https://api.themoviedb.org/3/tv/on_the_air?language=ru-RU&page=1", `fourth`);
@@ -33,12 +29,7 @@ F.mainPageSeries("https://api.themoviedb.org/3/tv/top_rated?language=ru-RU&page=
 
 // кнопки слайдера
 for (let i = 1; i <= 4; i++) {
-  Slider(
-    `[data-slider${i}]`,
-    `[data-slider-track${i}]`,
-    `[data-slider-prev${i}]`,
-    `[data-slider-next${i}]`
-  );
+  Slider(`[data-slider${i}]`, `[data-slider-track${i}]`, `[data-slider-prev${i}]`, `[data-slider-next${i}]`);
 }
 // кнопки слайдера
 
